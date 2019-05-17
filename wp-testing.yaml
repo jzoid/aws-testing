@@ -1,0 +1,17 @@
+Resources:
+  RHELInstance:
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: ami-01a76e79ae757048d
+      KeyName: jz
+      InstanceType: t2.micro
+      SecurityGroupIds:
+      - sg-03a3c99eecb49436d
+      UserData:
+        Fn::Base64: 
+          !Sub |
+            #!/bin/bash
+            yum install wget -y
+            wget https://raw.githubusercontent.com/jzoid/aws-testing/master/install_wp.sh
+            chmod u+x install_wp.sh
+            ./install_wp.sh thanroot thanwp
