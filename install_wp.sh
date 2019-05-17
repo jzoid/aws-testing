@@ -12,7 +12,6 @@ wp_db_pass=$2
 yum install -y vim telnet wget httpd mariadb php php-mysqlnd php-gd bind-utils mariadb-server mariadb rsync
 
 # set up db
-yum install -y mariadb-server mariadb
 systemctl start mariadb.service
 systemctl enable mariadb.service
 mysql -e "CREATE DATABASE wordpress;"
