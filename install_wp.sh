@@ -16,7 +16,7 @@ yum install -y mariadb-server mariadb
 systemctl start mariadb.service
 systemctl enable mariadb.service
 mysql -e "CREATE DATABASE wordpress;"
-mysql -e "CREATE USER 'wpuser'@'localhost' IDENTIFIED BY \'${wp_db_pass}\';"
+mysql -e "CREATE USER 'wpuser'@'localhost' IDENTIFIED BY '${wp_db_pass}';"
 mysql -e "GRANT ALL PRIVILEGES ON wordpress.* TO 'wpuser'@'localhost';"
 mysql -e "FLUSH PRIVILEGES;"
 
