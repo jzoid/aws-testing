@@ -41,4 +41,4 @@ Resources:
             wget https://raw.githubusercontent.com/jzoid/aws-testing/master/install_wp.sh
             chmod u+x install_wp.sh
             ./install_wp.sh ${DBRootPassword} ${DBPassword}
-             rm -rf ~/wordpress/ latest.tar.gz
+            rm -rf ~/wordpress/ latest.tar.gz
