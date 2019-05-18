@@ -9,7 +9,7 @@ root_db_pass=$1
 wp_db_pass=$2
 
 # install pkgs
-yum install -y vim telnet wget httpd mariadb php php-mysqlnd php-gd bind-utils mariadb-server mariadb rsync
+yum install -y vim telnet wget httpd php php-mysqlnd php-gd bind-utils mariadb-server mariadb rsync
 
 # set up db
 systemctl start mariadb.service
