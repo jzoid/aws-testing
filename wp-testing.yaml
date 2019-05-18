@@ -1,3 +1,29 @@
+Metadata: 
+  AWS::CloudFormation::Interface: 
+    ParameterGroups: 
+      - 
+        Label: 
+          default: "DB configuration"
+        Parameters: 
+          - DBRootPassword
+          - DBPassword
+Parameters:
+  DBRootPassword:
+    NoEcho: 'true'
+    Description: Root password for MySQL
+    Type: String
+    MinLength: '1'
+    MaxLength: '41'
+    AllowedPattern: "[a-zA-Z0-9]*"
+    ConstraintDescription: must contain only alphanumeric characters.
+  DBPassword:
+    NoEcho: 'true'
+    Description: Password for wordpress MySQL database
+    Type: String
+    MinLength: '1'
+    MaxLength: '41'
+    AllowedPattern: "[a-zA-Z0-9]*"
+    ConstraintDescription: must contain only alphanumeric characters.
 Resources:
   RHELInstance:
     Type: AWS::EC2::Instance
@@ -14,5 +40,5 @@ Resources:
             yum install wget -y
             wget https://raw.githubusercontent.com/jzoid/aws-testing/master/install_wp.sh
             chmod u+x install_wp.sh
-            ./install_wp.sh thanroot thanwp
+            ./install_wp.sh ${DBRootPassword} ${DBPassword}
              rm -rf ~/wordpress/ latest.tar.gz
